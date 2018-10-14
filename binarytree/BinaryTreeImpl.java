@@ -149,4 +149,15 @@ public class BinaryTreeImpl implements BinaryTree {
 			}
 		}
 	}
+
+	@Override
+	public int getHeight(BinaryTreeNode node) {
+		if(node == null) {
+			return -1;
+		}
+		
+		int leftHeight = getHeight(node.leftNode);
+		int rightHeight = getHeight(node.rightNode);
+		return leftHeight > rightHeight ? leftHeight+1:rightHeight+1;
+	}
 }

@@ -12,6 +12,7 @@ public interface BinaryTree {
 	
 	void levelOrderTraversal(BinaryTreeNode node);
 	
+	
 	BinaryTreeNode getRootNode();
 	
 	boolean ifMorrorTo(BinaryTreeNode binaryTreeNode, BinaryTreeNode binaryTreeNode2);
@@ -19,5 +20,7 @@ public interface BinaryTree {
 	boolean ifSimilarTo(BinaryTreeNode binaryTreeNode, BinaryTreeNode binaryTreeNode2);
 
 	boolean ifReplicaTo(BinaryTreeNode binaryTreeNode, BinaryTreeNode binaryTreeNode2);
+
+	int getHeight(BinaryTreeNode node);
 
 }
