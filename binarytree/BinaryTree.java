@@ -15,7 +15,7 @@ public interface BinaryTree {
 	boolean ifMorrorTo(BinaryTree tree);
 	
 	
-	boolean ifSimilarTo(BinaryTree tree);
+	boolean ifSimilarTo(BinaryTreeNode binaryTreeNode, BinaryTreeNode binaryTreeNode2);
 
 	boolean ifReplicaTo(BinaryTreeNode binaryTreeNode, BinaryTreeNode binaryTreeNode2);
 
