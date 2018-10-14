@@ -32,6 +32,8 @@ public class Driver {
 		btree.lrdTraversal(btree.getRootNode());
 		System.out.println("--Seperator--");
 		btree.rldTraversal(btree.getRootNode());
+		System.out.println("--Seperator--");
+		btree.levelOrderTraversal(btree.getRootNode());
 		
 		
 		List<Integer> nums = new ArrayList<Integer>();

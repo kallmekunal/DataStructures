@@ -130,4 +130,23 @@ public class BinaryTreeImpl implements BinaryTree {
 		
 	}
 
+	@Override
+	public void levelOrderTraversal(BinaryTreeNode node) {
+		if(null == node) {
+			return;
+		}
+		Queue<BinaryTreeNode> queue = new LinkedList<>();
+		queue.offer(node);
+
+		while(!queue.isEmpty()) 
+		{
+			BinaryTreeNode currentNode = queue.poll();
+			if(null != currentNode) 
+			{
+			System.out.println("Data:"+currentNode.data);
+			queue.offer(currentNode.leftNode);
+			queue.offer(currentNode.rightNode);
+			}
+		}
+	}
 }

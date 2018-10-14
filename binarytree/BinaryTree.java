@@ -10,6 +10,8 @@ public interface BinaryTree {
 	
 	void ldrTraversal(BinaryTreeNode node);
 	
+	void levelOrderTraversal(BinaryTreeNode node);
+	
 	BinaryTreeNode getRootNode();
 	
 	boolean ifMorrorTo(BinaryTreeNode binaryTreeNode, BinaryTreeNode binaryTreeNode2);
