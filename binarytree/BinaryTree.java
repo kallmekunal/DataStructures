@@ -11,5 +11,12 @@ public interface BinaryTree {
 	void ldrTraversal(BinaryTreeNode node);
 	
 	BinaryTreeNode getRootNode();
+	
+	boolean ifMorrorTo(BinaryTree tree);
+	
+	
+	boolean ifSimilarTo(BinaryTree tree);
+
+	boolean ifReplicaTo(BinaryTreeNode binaryTreeNode, BinaryTreeNode binaryTreeNode2);
 
 }

@@ -81,4 +81,35 @@ public class BinaryTreeImpl implements BinaryTree {
 		return rootNode;
 	}
 
+	@Override
+	public boolean ifMorrorTo(BinaryTree tree) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+	@Override
+	public boolean ifSimilarTo(BinaryTree tree) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean ifReplicaTo(BinaryTreeNode leftBtree, BinaryTreeNode rightBTree) {
+ 
+		if(leftBtree == null && rightBTree != null  || leftBtree!=null && rightBTree== null) {
+			return false;
+		}
+		if(leftBtree == null && rightBTree == null) {
+			return true;
+		}
+		
+		
+		if(leftBtree.getData() == rightBTree.getData()) {
+			return ifReplicaTo(leftBtree.getLeftNode(),rightBTree.getLeftNode()) && ifReplicaTo(leftBtree.getRightNode(),rightBTree.getRightNode());
+		}else {
+			return false;
+		}
+	}
+
 }
