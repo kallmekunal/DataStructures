@@ -12,8 +12,7 @@ public interface BinaryTree {
 	
 	BinaryTreeNode getRootNode();
 	
-	boolean ifMorrorTo(BinaryTree tree);
-	
+	boolean ifMorrorTo(BinaryTreeNode binaryTreeNode, BinaryTreeNode binaryTreeNode2);
 	
 	boolean ifSimilarTo(BinaryTreeNode binaryTreeNode, BinaryTreeNode binaryTreeNode2);
 

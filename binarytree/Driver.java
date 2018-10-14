@@ -10,14 +10,22 @@ public class Driver {
 		btree.insert(1);
 		btree.insert(2);
 		btree.insert(3);
+		btree.insert(6);
+		btree.insert(7);
+		btree.insert(8);
+
 
 		BinaryTree  btree2 = new BinaryTreeImpl(5);
-		btree2.insert(1);
 		btree2.insert(2);
-		btree2.insert(13);
+		btree2.insert(1);
+		btree2.insert(8);
+		btree2.insert(7);
+		btree2.insert(6);
+		btree2.insert(3);
 		
 		System.out.println("Same "+ btree.ifReplicaTo(btree.getRootNode(), btree2.getRootNode()));
 		System.out.println("Similar "+ btree.ifSimilarTo(btree.getRootNode(), btree2.getRootNode()));
+		System.out.println("Mirror "+ btree.ifMorrorTo(btree.getRootNode(), btree2.getRootNode()));
 		
 		btree.ldrTraversal(btree.getRootNode());
 		System.out.println("--Seperator--");

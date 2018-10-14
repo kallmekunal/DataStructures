@@ -81,12 +81,6 @@ public class BinaryTreeImpl implements BinaryTree {
 		return rootNode;
 	}
 
-	@Override
-	public boolean ifMorrorTo(BinaryTree tree) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
 
 	@Override
 	public boolean ifSimilarTo(BinaryTreeNode leftBtree, BinaryTreeNode rightBTree) {
@@ -97,7 +91,7 @@ public class BinaryTreeImpl implements BinaryTree {
 		if(leftBtree == null && rightBTree == null) {
 			return true;
 		}
-		return ifSimilarTo(leftBtree.getLeftNode(),rightBTree.getLeftNode()) && ifReplicaTo(leftBtree.getRightNode(),rightBTree.getRightNode());
+		return ifSimilarTo(leftBtree.getLeftNode(),rightBTree.getLeftNode()) && ifSimilarTo(leftBtree.getRightNode(),rightBTree.getRightNode());
 	}
 
 	@Override
@@ -116,6 +110,24 @@ public class BinaryTreeImpl implements BinaryTree {
 		}else {
 			return false;
 		}
+	}
+
+	@Override
+	public boolean ifMorrorTo(BinaryTreeNode leftBtree, BinaryTreeNode rightBTree) 
+	{
+		if(leftBtree == null && rightBTree != null  || leftBtree!=null && rightBTree== null) {
+			return false;
+		}
+		if(leftBtree == null && rightBTree == null) {
+			return true;
+		}
+		
+		if(leftBtree.getData() == rightBTree.getData()) {
+			return ifMorrorTo(leftBtree.getLeftNode(),rightBTree.getRightNode()) && ifMorrorTo(leftBtree.getRightNode(),rightBTree.getLeftNode());
+		}else {
+			return false;
+		}
+		
 	}
 
 }
