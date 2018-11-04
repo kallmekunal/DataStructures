@@ -36,6 +36,7 @@ public class Driver {
 		btree.levelOrderTraversal(btree.getRootNode());
 		System.out.println("Height"+btree.getHeight(btree.getRootNode()));
 		System.out.println("Height"+btree2.getHeight(btree2.getRootNode()));
+		btree.topView(btree.getRootNode());
 		
 		
 		List<Integer> nums = new ArrayList<Integer>();

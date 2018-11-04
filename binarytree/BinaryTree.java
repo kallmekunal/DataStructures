@@ -12,6 +12,7 @@ public interface BinaryTree {
 	
 	void levelOrderTraversal(BinaryTreeNode node);
 	
+	void topView(BinaryTreeNode node);
 	
 	BinaryTreeNode getRootNode();
 	
@@ -22,5 +23,7 @@ public interface BinaryTree {
 	boolean ifReplicaTo(BinaryTreeNode binaryTreeNode, BinaryTreeNode binaryTreeNode2);
 
 	int getHeight(BinaryTreeNode node);
+	
+	int getHeightWithoutRecursion(BinaryTreeNode node);
 
 }

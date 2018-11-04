@@ -160,4 +160,28 @@ public class BinaryTreeImpl implements BinaryTree {
 		int rightHeight = getHeight(node.rightNode);
 		return leftHeight > rightHeight ? leftHeight+1:rightHeight+1;
 	}
+
+	@Override
+	public void topView(BinaryTreeNode node) 
+	{
+		if(null == node) 
+		{
+			return;
+		}
+		else 
+		{
+			topView(node.leftNode);
+			System.out.print(node.data + " ");
+			topView(node.rightNode);
+			System.out.print(node.data + " ");
+		}
+		
+		
+		
+	}
+
+	@Override
+	public int getHeightWithoutRecursion(BinaryTreeNode node) {
+		return 0;
+	}
 }
