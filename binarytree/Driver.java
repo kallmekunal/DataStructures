@@ -39,6 +39,11 @@ public class Driver {
 		btree.topView(btree.getRootNode());
 		
 		
+		System.out.println("--Get Max ehight Seperator--");
+		System.out.println(btree.getHeightWithoutRecursion(btree.getRootNode()));
+		System.out.println("--Get Max ehight Seperator--");
+		
+		
 		List<Integer> nums = new ArrayList<Integer>();
 		Integer i = 2;
 		nums.add(i);

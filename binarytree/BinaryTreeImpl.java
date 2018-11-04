@@ -175,13 +175,44 @@ public class BinaryTreeImpl implements BinaryTree {
 			topView(node.rightNode);
 			System.out.print(node.data + " ");
 		}
-		
-		
-		
 	}
 
 	@Override
 	public int getHeightWithoutRecursion(BinaryTreeNode node) {
-		return 0;
+		//Base Case
+		if(null == node) {
+			return 0;
+		}
+		
+		int height = 0;
+		Queue<BinaryTreeNode> queue = new LinkedList<>();
+		queue.offer(node);
+	
+		while(!queue.isEmpty()) {
+			int queueSize = queue.size();
+			if(0==queueSize)
+			{
+				break;
+			}else {
+				//This will be for each level
+				height++;
+			}
+		
+			//Iterate through current level nodes and pop them and add next level elements.
+			//The next level height will be achieved once the upper while loop will get executed.
+			while(queueSize >0){
+			BinaryTreeNode  poppedNode =queue.poll();
+			
+			if(poppedNode !=null && poppedNode.leftNode!=null) {
+				queue.offer(poppedNode.leftNode);
+			}
+			if(poppedNode !=null && poppedNode.rightNode!=null) {
+				queue.offer(poppedNode.rightNode);
+			}
+			queueSize--;
+			}
+			
+		}
+		return height;
 	}
 }
