@@ -26,4 +26,6 @@ public interface BinaryTree {
 	
 	int getHeightWithoutRecursion(BinaryTreeNode node);
 
+	int getMinHeightWithoutRecursion(BinaryTreeNode node);
+
 }

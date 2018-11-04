@@ -2,9 +2,9 @@ package com.kunal.poc.binarytree;
 
 public class BinaryTreeNode {
 	
-	BinaryTreeNode leftNode;
-	int data;
-	BinaryTreeNode rightNode;
+	public BinaryTreeNode leftNode;
+	public int data;
+	public BinaryTreeNode rightNode;
 	
 	public BinaryTreeNode() {
 		leftNode = null;

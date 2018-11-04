@@ -215,4 +215,32 @@ public class BinaryTreeImpl implements BinaryTree {
 		}
 		return height;
 	}
+
+	@Override
+	public int getMinHeightWithoutRecursion(BinaryTreeNode node) {
+		if(node == null) {
+			return 0;
+		}
+		
+		LinkedList<BinaryTreeNode> queue = new LinkedList<>();
+		queue.offer(node);
+		int minHeight = 0;
+		
+		while(!queue.isEmpty()) {
+			BinaryTreeNode currNode = queue.poll();
+			
+			if(currNode.leftNode== null&& currNode.rightNode==null) {
+				return minHeight;
+			}else {
+				minHeight++;
+			}
+			if(currNode.leftNode!= null) {
+				queue.offer(currNode.leftNode);
+			}
+			if(currNode.rightNode!= null) {
+				queue.offer(currNode.rightNode);
+			}
+		}
+		return 0;
+	}
 }

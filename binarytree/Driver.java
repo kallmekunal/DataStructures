@@ -43,6 +43,8 @@ public class Driver {
 		System.out.println(btree.getHeightWithoutRecursion(btree.getRootNode()));
 		System.out.println("--Get Max ehight Seperator--");
 		
+		testMinDepthWithoutrecursion();
+		
 		
 		List<Integer> nums = new ArrayList<Integer>();
 		Integer i = 2;
@@ -51,6 +53,20 @@ public class Driver {
 //		nums.add(d);
 		
 		nums.stream().forEach(e -> System.out.println(e));
+	}
+
+	private static void testMinDepthWithoutrecursion() {
+		BinaryTreeImpl impl = new BinaryTreeImpl(1);
+		BinaryTreeNode root = impl.getRootNode();
+		root.leftNode = new BinaryTreeNode(2);
+		root.leftNode.leftNode = new BinaryTreeNode(3);
+		BinaryTreeNode rightNode = new BinaryTreeNode(5);
+		root.rightNode = rightNode;
+		
+		
+		System.out.println("--Get Min height Seperator--");
+		System.out.println(impl.getMinHeightWithoutRecursion(impl.getRootNode()));
+		System.out.println("--Get Min height Seperator--");
 	}
 
 }
