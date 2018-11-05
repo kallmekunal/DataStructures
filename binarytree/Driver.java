@@ -44,6 +44,7 @@ public class Driver {
 		System.out.println("--Get Max ehight Seperator--");
 		
 		testMinDepthWithoutrecursion();
+		testDiameter();
 		
 		
 		List<Integer> nums = new ArrayList<Integer>();
@@ -67,6 +68,22 @@ public class Driver {
 		System.out.println("--Get Min height Seperator--");
 		System.out.println(impl.getMinHeightWithoutRecursion(impl.getRootNode()));
 		System.out.println("--Get Min height Seperator--");
+	}
+	
+	
+	private static void testDiameter() {
+		BinaryTreeImpl impl = new BinaryTreeImpl(1);
+		BinaryTreeNode root = impl.getRootNode();
+		root.leftNode = new BinaryTreeNode(2);
+		root.leftNode.leftNode = new BinaryTreeNode(3);
+		root.leftNode.leftNode.leftNode = new BinaryTreeNode(3);
+		BinaryTreeNode rightNode = new BinaryTreeNode(5);
+		root.rightNode = rightNode;
+		
+		
+		System.out.println("--Get dim Seperator--");
+		System.out.println(impl.diameter(impl.getRootNode()));
+		System.out.println("--Get dim Seperator--");
 	}
 
 }

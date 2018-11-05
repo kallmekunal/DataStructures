@@ -243,4 +243,24 @@ public class BinaryTreeImpl implements BinaryTree {
 		}
 		return 0;
 	}
+
+	@Override
+	public int diameter(BinaryTreeNode root) {
+		if(null == root) {
+			return 0;
+		}
+		
+		int lheight = getHeight(root.leftNode);
+		int rheight = getHeight(root.rightNode);
+		
+		int ldiameter = diameter(root.leftNode);
+		int rdiameter = diameter(root.rightNode);
+		
+		 /* Return max of following three 
+        1) Diameter of left subtree 
+       2) Diameter of right subtree 
+       3) Height of left subtree + height of right subtree + 1 */
+      return Math.max(lheight + rheight + 1, 
+                      Math.max(ldiameter, rdiameter)); 
+	}
 }
