@@ -29,5 +29,9 @@ public interface BinaryTree {
 	int getMinHeightWithoutRecursion(BinaryTreeNode node);
 	
 	int diameter(BinaryTreeNode root);
+	
+	void printPathFromNode(BinaryTreeNode root,int arr[],int length);
+	
+	void printPathFromNodeHavingSpecifiedSum(BinaryTreeNode root,int arr[],int length,int sum);
 
 }

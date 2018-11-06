@@ -54,6 +54,9 @@ public class Driver {
 //		nums.add(d);
 		
 		nums.stream().forEach(e -> System.out.println(e));
+		
+		testPrintPathTillLeaf();
+		testPrintPathTillLeafWithSpecifiedSum();
 	}
 
 	private static void testMinDepthWithoutrecursion() {
@@ -84,6 +87,36 @@ public class Driver {
 		System.out.println("--Get dim Seperator--");
 		System.out.println(impl.diameter(impl.getRootNode()));
 		System.out.println("--Get dim Seperator--");
+	}
+	
+	private static void testPrintPathTillLeaf() {
+		BinaryTreeImpl impl = new BinaryTreeImpl(1);
+		BinaryTreeNode root = impl.getRootNode();
+		root.leftNode = new BinaryTreeNode(2);
+		root.leftNode.leftNode = new BinaryTreeNode(3);
+		root.leftNode.leftNode.leftNode = new BinaryTreeNode(4);
+		BinaryTreeNode rightNode = new BinaryTreeNode(5);
+		root.rightNode = rightNode;
+		
+		
+		System.out.println("--Print path--");
+		impl.printPathFromNode(root, new int[20], 0);
+		System.out.println("--Print path--");
+	}
+	
+	private static void testPrintPathTillLeafWithSpecifiedSum() {
+		BinaryTreeImpl impl = new BinaryTreeImpl(1);
+		BinaryTreeNode root = impl.getRootNode();
+		root.leftNode = new BinaryTreeNode(2);
+		root.leftNode.leftNode = new BinaryTreeNode(3);
+		root.leftNode.leftNode.leftNode = new BinaryTreeNode(4);
+		BinaryTreeNode rightNode = new BinaryTreeNode(5);
+		root.rightNode = rightNode;
+		
+		
+		System.out.println("--Print path--");
+		impl.printPathFromNodeHavingSpecifiedSum(root, new int[20], 0,6);
+		System.out.println("--Print path--");
 	}
 
 }

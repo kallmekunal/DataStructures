@@ -263,4 +263,55 @@ public class BinaryTreeImpl implements BinaryTree {
       return Math.max(lheight + rheight + 1, 
                       Math.max(ldiameter, rdiameter)); 
 	}
+
+	@Override
+	public void printPathFromNode(BinaryTreeNode root,int arr[],int length) {
+		
+		if(root == null) {
+			return;
+		}
+		
+		arr[length] = root.data;
+		length++;
+		
+		if(root.leftNode == null && root.rightNode== null) {
+			printNodesTillThisPath(arr,length);
+		}
+		else
+		{
+			printPathFromNode(root.leftNode, arr, length);
+			printPathFromNode(root.rightNode, arr, length);
+		}
+	}
+
+	private void printNodesTillThisPath(int[] arr, int length) {
+		System.out.println("Print Start path");
+		for(int i= 0;i<length;i++) {
+		System.out.println(arr[i]);
+		}
+		System.out.println("Print End path");
+	}
+	
+	@Override
+	public void printPathFromNodeHavingSpecifiedSum(BinaryTreeNode root, int[] arr, int length, int sum) {
+
+		
+		if(root == null) {
+			return;
+		}
+		
+		arr[length] = root.data;
+		length++;
+		
+		if(root.leftNode == null && root.rightNode== null && root.data == sum) {
+			printNodesTillThisPath(arr,length);
+		}
+		else
+		{
+			printPathFromNodeHavingSpecifiedSum(root.leftNode, arr, length,sum-root.data);
+			printPathFromNodeHavingSpecifiedSum(root.rightNode, arr, length,sum-root.data);
+		}
+	
+		
+	}
 }
