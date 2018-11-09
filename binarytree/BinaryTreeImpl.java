@@ -1,6 +1,9 @@
 package com.kunal.poc.binarytree;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 public class BinaryTreeImpl implements BinaryTree {
@@ -313,5 +316,23 @@ public class BinaryTreeImpl implements BinaryTree {
 		}
 	
 		
+	}
+
+	@Override
+	public void traverseInVertivcalOrder(BinaryTreeNode root, int hd, HashMap<Integer, List<Integer>> hdNodeDataList) {
+		if(root == null) {
+			return;
+		}
+		
+		List<Integer> list = hdNodeDataList.get(hd);
+		
+		if(list == null) {
+			list = new ArrayList<>();
+		}
+		list.add(root.data);
+		hdNodeDataList.put(hd, list);
+		
+		traverseInVertivcalOrder(root.leftNode, hd-1, hdNodeDataList);
+		traverseInVertivcalOrder(root.rightNode, hd+1, hdNodeDataList);
 	}
 }

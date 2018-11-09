@@ -1,6 +1,7 @@
 package com.kunal.poc.binarytree;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class Driver {
@@ -57,6 +58,7 @@ public class Driver {
 		
 		testPrintPathTillLeaf();
 		testPrintPathTillLeafWithSpecifiedSum();
+		testVerticalOrderTraversal();
 	}
 
 	private static void testMinDepthWithoutrecursion() {
@@ -117,6 +119,25 @@ public class Driver {
 		System.out.println("--Print path--");
 		impl.printPathFromNodeHavingSpecifiedSum(root, new int[20], 0,6);
 		System.out.println("--Print path--");
+	}
+	
+	private static void testVerticalOrderTraversal() {
+		BinaryTreeImpl impl = new BinaryTreeImpl(1);
+		BinaryTreeNode root = impl.getRootNode();
+		root.leftNode = new BinaryTreeNode(2);
+		root.leftNode.rightNode = new BinaryTreeNode(20);
+		root.leftNode.leftNode = new BinaryTreeNode(3);
+		root.leftNode.leftNode.leftNode = new BinaryTreeNode(4);
+		BinaryTreeNode rightNode = new BinaryTreeNode(5);
+		root.rightNode = rightNode;
+		root.rightNode.leftNode = new BinaryTreeNode(31);
+		
+		
+		System.out.println("--Print testVerticalOrderTraversal--");
+		HashMap<Integer, List<Integer>> listMap = new HashMap<>();
+		impl.traverseInVertivcalOrder(root, 0, listMap);
+		listMap.entrySet().stream().forEach(e -> {System.out.println(e.getKey()+"Values "+e.getValue());});
+		System.out.println("--Print testVerticalOrderTraversal--");
 	}
 
 }

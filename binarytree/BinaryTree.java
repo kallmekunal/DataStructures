@@ -1,5 +1,8 @@
 package com.kunal.poc.binarytree;
 
+import java.util.HashMap;
+import java.util.List;
+
 public interface BinaryTree {
 	
 	void insert(int data);
@@ -33,5 +36,7 @@ public interface BinaryTree {
 	void printPathFromNode(BinaryTreeNode root,int arr[],int length);
 	
 	void printPathFromNodeHavingSpecifiedSum(BinaryTreeNode root,int arr[],int length,int sum);
+	
+	void traverseInVertivcalOrder(BinaryTreeNode root,int hd,HashMap<Integer,List<Integer>> hdNodeDataList);
 
 }
