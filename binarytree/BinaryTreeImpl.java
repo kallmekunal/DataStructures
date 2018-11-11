@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+import java.util.Stack;
 
 public class BinaryTreeImpl implements BinaryTree {
 
@@ -334,5 +335,42 @@ public class BinaryTreeImpl implements BinaryTree {
 		
 		traverseInVertivcalOrder(root.leftNode, hd-1, hdNodeDataList);
 		traverseInVertivcalOrder(root.rightNode, hd+1, hdNodeDataList);
+	}
+
+	@Override
+	public void zigzagTraversal(BinaryTreeNode root, boolean leftToRight) {
+		if(null == root) {
+			return;
+		}
+		
+		Stack<BinaryTreeNode> currentStack = new Stack<>();
+		Stack<BinaryTreeNode> nextStack = new Stack<>();
+		currentStack.push(root);
+		
+		while(!currentStack.isEmpty()) {
+			BinaryTreeNode i = currentStack.pop();
+			System.out.print(i.data+" ");
+			if(leftToRight && null != i) {
+				
+				if(i.leftNode != null)
+				currentStack.push(i.leftNode);
+				if(i.rightNode != null)
+					currentStack.push(i.rightNode);
+			}else {
+				
+				if(i.rightNode != null)
+				nextStack.push(i.rightNode);
+				if(i.leftNode != null)
+					nextStack.push(i.leftNode);
+			}
+			
+			//If nodes are done on this level ,swap current and next.
+			if (currentStack.isEmpty()) { 
+		        leftToRight = !leftToRight; 
+		        Stack<BinaryTreeNode> temp = currentStack; 
+		        currentStack = nextStack; 
+		        nextStack = temp; 
+		    } 
+		}
 	}
 }

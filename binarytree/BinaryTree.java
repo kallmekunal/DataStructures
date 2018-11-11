@@ -38,5 +38,7 @@ public interface BinaryTree {
 	void printPathFromNodeHavingSpecifiedSum(BinaryTreeNode root,int arr[],int length,int sum);
 	
 	void traverseInVertivcalOrder(BinaryTreeNode root,int hd,HashMap<Integer,List<Integer>> hdNodeDataList);
+	
+	void zigzagTraversal(BinaryTreeNode root,boolean leftToRight);
 
 }

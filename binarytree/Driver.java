@@ -59,6 +59,21 @@ public class Driver {
 		testPrintPathTillLeaf();
 		testPrintPathTillLeafWithSpecifiedSum();
 		testVerticalOrderTraversal();
+		testZigZagOrderTraversal();
+	}
+
+	private static void testZigZagOrderTraversal() {
+		BinaryTreeImpl impl = new BinaryTreeImpl(1);
+		BinaryTreeNode root = impl.getRootNode();
+		root.leftNode = new BinaryTreeNode(2);
+		root.leftNode.leftNode = new BinaryTreeNode(3);
+		BinaryTreeNode rightNode = new BinaryTreeNode(5);
+		root.rightNode = rightNode;
+		
+		
+		System.out.println("--ZigZag--");
+		impl.zigzagTraversal(root,true);
+		System.out.println("--ZigZag--");
 	}
 
 	private static void testMinDepthWithoutrecursion() {
