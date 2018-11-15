@@ -10,7 +10,9 @@ import java.util.Stack;
 public class BinaryTreeImpl implements BinaryTree {
 
 	BinaryTreeNode rootNode;
-	
+	private static int start =0;
+	public BinaryTreeImpl() {
+	}
 	
 	public BinaryTreeImpl(int rootData) {
 		rootNode = new BinaryTreeNode(rootData);
@@ -61,11 +63,11 @@ public class BinaryTreeImpl implements BinaryTree {
 	@Override
 	public void ldrTraversal(BinaryTreeNode node) {
 		if(node.leftNode != null) {
-			lrdTraversal(node.leftNode);
+			ldrTraversal(node.leftNode);
 		}
 		System.out.println(node.data);
 		if(node.rightNode != null) {
-			lrdTraversal(node.rightNode);
+			ldrTraversal(node.rightNode);
 		}
 	}
 
@@ -372,5 +374,36 @@ public class BinaryTreeImpl implements BinaryTree {
 		        nextStack = temp; 
 		    } 
 		}
+	}
+
+	@Override
+	public BinaryTreeNode createBinaryTreeFromInOrderAndPreOrderTraversal
+							(int[] inOrder,int[] preOrder, int inStart,int inEnd) {
+		if(inStart>inEnd) {
+			return null;
+		}
+		
+		//Calculate root value for this iteration.
+		int rtValue = preOrder[start++];
+		BinaryTreeNode rootNode = new BinaryTreeNode(rtValue);
+		 if (inStart == inEnd) 
+	            return rootNode; 
+		
+		int rootIndexInInOrder = searchRootIndex(inOrder,rtValue,inStart,inEnd);
+		
+		rootNode.leftNode = createBinaryTreeFromInOrderAndPreOrderTraversal(inOrder, preOrder, inStart, rootIndexInInOrder-1);
+		rootNode.rightNode = createBinaryTreeFromInOrderAndPreOrderTraversal(inOrder, preOrder, rootIndexInInOrder+1, inEnd);
+		
+		
+		return rootNode;
+	}
+
+	private int searchRootIndex(int[] inOrder, int rtValue,int inStart,int inEnd) {
+		 int i; 
+	        for (i = inStart; i <= inEnd; i++) { 
+	            if (inOrder[i] == rtValue) 
+	                return i; 
+	        } 
+	        return i; 
 	}
 }

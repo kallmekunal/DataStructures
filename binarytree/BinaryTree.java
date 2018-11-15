@@ -40,5 +40,6 @@ public interface BinaryTree {
 	void traverseInVertivcalOrder(BinaryTreeNode root,int hd,HashMap<Integer,List<Integer>> hdNodeDataList);
 	
 	void zigzagTraversal(BinaryTreeNode root,boolean leftToRight);
-
+	
+	BinaryTreeNode createBinaryTreeFromInOrderAndPreOrderTraversal(int inOrder[],int preOrder[],int inStart,int inEnd);
 }

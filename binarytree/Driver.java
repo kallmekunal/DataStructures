@@ -60,6 +60,19 @@ public class Driver {
 		testPrintPathTillLeafWithSpecifiedSum();
 		testVerticalOrderTraversal();
 		testZigZagOrderTraversal();
+		testConstructBinaryTreeFromInAndPreOrder();
+	}
+
+	private static void testConstructBinaryTreeFromInAndPreOrder() {
+		 BinaryTreeImpl tree = new BinaryTreeImpl(); 
+	        int in[] = new int[] { 'D', 'B', 'E', 'A', 'F', 'C' }; 
+	        int pre[] = new int[] { 'A', 'B', 'D', 'E', 'C', 'F' }; 
+	        int len = in.length; 
+	        BinaryTreeNode root = tree.createBinaryTreeFromInOrderAndPreOrderTraversal(in, pre, 0, len - 1); 
+	  
+	        // building the tree by printing inorder traversal 
+	        System.out.println("Inorder traversal of constructed tree is : "); 
+	        tree.ldrTraversal(root); 
 	}
 
 	private static void testZigZagOrderTraversal() {
