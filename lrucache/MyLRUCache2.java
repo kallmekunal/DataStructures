@@ -95,11 +95,6 @@ public class MyLRUCache2{
 			head.pre = node;
 		}
 		head = node;
-		/*if(tail ==null) {
-			tail = head;
-			
-		}
-*/
 	}
 
 
